@@ -15,9 +15,9 @@ You may change the hotkey setting by clicking "Set Hotkeys" and following the di
 <img width="340" height="408" alt="image" src="https://github.com/user-attachments/assets/ececc0ff-c323-47d4-b724-3eb34eadb8c0" />
 
 ### Playing Macro on Image Detection
-Click "More Settings" to open the menu below.
+Click "More Settings" to open the menu shown below.
 
-<img width="822" height="548" alt="image" src="https://github.com/user-attachments/assets/c2518cdd-9869-41f0-bcfa-ebe63ef0b073" />
+<img width="507" height="536" alt="image" src="https://github.com/user-attachments/assets/2a2f0004-6063-43ca-8105-34b852908ca8" />
 
 Click "Select Images To Search" to do just that. A file dialog will appear, and you may select multiple image files at a time.
 
