@@ -472,7 +472,6 @@ Play: ;{
 				break
 			
 			Send, % "{Blind}{" KeyPressesArray[A_Index * 2 - 1] "}"
-			ToolTip, % "{Blind}{" KeyPressesArray[A_Index * 2 - 1] "}"
 			SuperAccuSleepBreakable(KeyPressesArray[A_Index * 2], Playing)
 		}
 	}
