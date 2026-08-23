@@ -1,6 +1,6 @@
 /* Script Info
 Started: 1/5/2023
-Edited: 8/22/2026
+Edited: 8/23/2026
 RUN WITHOUT OTHER AUTOHOTKEY SCRIPTS THAT USE KeybdHook (see:  https://www.autohotkey.com/docs/v1/lib/Send.htm#SendInputUnavail )
 */
 
@@ -209,6 +209,7 @@ return
 ;{ Recording
 
 Record: ;{
+	Critical, Off
 	Gui, %GuiHwnd%:+OwnDialogs
 	
 	if (Playing)
@@ -266,7 +267,7 @@ Record: ;{
 	
 	
 	if (ShowRecordingToolTip)
-		SetTimer, Show_Recording_ToolTip, 50, -1
+		SetTimer, Show_Recording_ToolTip, 50
 	
 	KeyPresses := "" ;erase the old key press data, if there is any
 	
@@ -297,6 +298,7 @@ return ;}
 
 
 Stop_Recording: ;{
+	Critical, On
 	Recording := 0
 	
 	TimestampOfLastRecordingEvent := 0
@@ -390,6 +392,7 @@ return ;}
 ;{ Playing
 
 Play: ;{
+	Critical, Off
 	Gui, %GuiHwnd%:+OwnDialogs
 	
 	if (Recording)  ;only necessary if a gui button is added for playing macro
@@ -472,7 +475,7 @@ Play: ;{
 				break
 			
 			Send, % "{Blind}{" KeyPressesArray[A_Index * 2 - 1] "}"
-			SuperAccuSleepBreakable(KeyPressesArray[A_Index * 2], Playing)
+			SuperAccuSleepBreakable(KeyPressesArray[A_Index * 2] / PlaybackSpeed, Playing)
 		}
 	}
 	
@@ -487,6 +490,7 @@ Play: ;{
 	KeyPressesArray := ""
 	
 Stop_Playing:  ;this gets run twice if stopped by hotkey
+	Critical, On
 	Playing := 0
 	
 	SetTimer, Show_Playing_ToolTip, Off
@@ -930,7 +934,7 @@ Reset_Gui_Size: ;{
 return ;}
 
 GuiClose: ;{
-	Critical
+	Critical, On
 	
 	if (Playing)
 	{
